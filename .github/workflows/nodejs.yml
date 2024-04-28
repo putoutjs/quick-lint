@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NAME: '@putout/quick-lint'
+      NAME: "@putout/quick-lint"
     strategy:
       matrix:
         node-version:

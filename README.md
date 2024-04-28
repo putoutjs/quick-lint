@@ -17,6 +17,8 @@
 
 ## API
 
+### lint(source, {isJSX, isTS});
+
 ```js
 const {lint} = require('@putout/quick-lint');
 
@@ -47,4 +49,3 @@ lint(`
 ## License
 
 MIT
-
