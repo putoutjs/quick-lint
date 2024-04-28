@@ -2,7 +2,7 @@
 
 import {readFile} from 'node:fs/promises';
 import process from 'node:process';
-import {lint} from '../lib/quick-lint.js';
+import quickLint from '../lib/quick-lint.js';
 
 const fileName = process.argv[2];
 
@@ -12,6 +12,6 @@ if (!fileName) {
 }
 
 const source = await readFile(fileName, 'utf-8');
-const places = await lint(source);
+const places = await quickLint(source);
 
 console.log(places);

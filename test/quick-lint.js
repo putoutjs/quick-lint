@@ -24,14 +24,14 @@ test('quick-lint: no async', async (t) => {
         message: `'await' is only allowed in async functions`,
         position: {
             line: 2,
-            column: 4,
+            column: 5,
         },
     }, {
         rule: 'parser (quick-lint-js)',
         message: 'use of undeclared variable: m',
         position: {
             line: 2,
-            column: 10,
+            column: 11,
         },
     }];
     
@@ -69,15 +69,35 @@ test('quick-lint: jsx', async (t) => {
     t.end();
 });
 
-test('quick-lint: await: undeclared variable', async (t) => {
-    const result = await quickLint(montag`
-        () => await
-    `);
+test('quick-lint: await: await: isFixMessages: false', async (t) => {
+    const source = '() => await';
+    const result = await quickLint(source, {
+        isFixMessages: false,
+    });
     
     const expected = [{
         message: 'use of undeclared variable: await',
         position: {
-            column: 5,
+            column: 6,
+            line: 1,
+        },
+        rule: 'parser (quick-lint-js)',
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('quick-lint: await', async (t) => {
+    const source = '() => await';
+    const result = await quickLint(source, {
+        isBlacklist: false,
+    });
+    
+    const expected = [{
+        message: `'await' is only allowed in async functions`,
+        position: {
+            column: 6,
             line: 1,
         },
         rule: 'parser (quick-lint-js)',
