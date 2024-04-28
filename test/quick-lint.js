@@ -70,7 +70,7 @@ test('quick-lint: jsx', async (t) => {
     t.end();
 });
 
-test('quick-lint: jsx: await', async (t) => {
+test('quick-lint: await: undeclared variable', async (t) => {
     const result = await lint(montag`
         () => await
     `);
@@ -83,6 +83,17 @@ test('quick-lint: jsx: await', async (t) => {
         },
         rule: 'parser (quick-lint-js)',
     }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('quick-lint: await: declared', async (t) => {
+    const result = await lint(montag`
+        const await = 5;
+    `);
+    
+    const expected = [];
     
     t.deepEqual(result, expected);
     t.end();
