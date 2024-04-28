@@ -1,0 +1,4 @@
+function x() {
+    await m();
+}
+

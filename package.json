@@ -1,0 +1,55 @@
+{
+  "name": "@putout/quick-lint",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
+  "description": "quick-lint-js as library",
+  "homepage": "http://github.com/putout/quick-lint",
+  "main": "lib/quick-lint.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/putout/quick-lint.git"
+  },
+  "keywords": [
+    "quick-lint-js",
+    "linter",
+    "js",
+    "putout"
+  ],
+  "scripts": {
+    "test": "madrun test",
+    "coverage": "madrun coverage",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "report": "madrun report",
+    "watcher": "madrun watcher",
+    "watch:test": "madrun watch:test",
+    "watch:lint": "madrun watch:lint",
+    "watch:tape": "madrun watch:tape",
+    "watch:coverage:base": "madrun watch:coverage:base",
+    "watch:coverage:tape": "madrun watch:coverage:tape",
+    "watch:coverage": "madrun watch:coverage"
+  },
+  "dependencies": {
+    "montag": "^1.2.1",
+    "once": "^1.4.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "c8": "^9.1.0",
+    "eslint": "^9.1.1",
+    "eslint-plugin-n": "^17.3.1",
+    "eslint-plugin-putout": "^22.5.1",
+    "madrun": "^10.0.1",
+    "nodemon": "^3.1.0",
+    "putout": "^35.16.2",
+    "supertape": "^10.5.0",
+    "try-to-catch": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
