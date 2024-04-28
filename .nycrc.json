@@ -6,7 +6,8 @@
         "**/*.spec.*",
         "test",
         "**/fixture",
-        "**/dist"
+        "**/dist",
+        "**/*.config.*"
     ],
     "branches": 100,
     "lines": 100,
