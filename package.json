@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git://github.com/putout/quick-lint.git"
   },
+  "bin": {
+    "quick-lint": "bin/quick-lint.mjs"
+  },
   "keywords": [
     "quick-lint-js",
     "linter",
