@@ -1,14 +1,14 @@
 {
   "name": "@putout/quick-lint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "commonjs",
   "author": "coderaiser <mnemonic.enemy@gmail.com> (https://github.com/coderaiser)",
   "description": "quick-lint-js as library",
-  "homepage": "http://github.com/putout/quick-lint",
+  "homepage": "http://github.com/putoutjs/quick-lint",
   "main": "lib/quick-lint.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/putout/quick-lint.git"
+    "url": "git://github.com/putoutjs/quick-lint.git"
   },
   "bin": {
     "quick-lint": "bin/quick-lint.mjs"
