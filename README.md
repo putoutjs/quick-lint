@@ -17,10 +17,20 @@
 
 ## API
 
-### lint(source, {isJSX, isTS});
+### quickLint(source: string, options: Options)
+
+```ts
+interface Options {
+    isJSX: boolean;
+    isTS: boolean;
+}
+```
 
 ```js
-const quickLint = require('@putout/quick-lint');
+const quickLint = require('@putout/quick-lint', {
+    isJSX: true,
+    isTS: false,
+});
 
 quickLint(`
     function x() {
