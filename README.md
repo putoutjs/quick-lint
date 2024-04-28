@@ -20,9 +20,9 @@
 ### lint(source, {isJSX, isTS});
 
 ```js
-const {lint} = require('@putout/quick-lint');
+const quickLint = require('@putout/quick-lint');
 
-lint(`
+quickLint(`
     function x() {
         await m();
     }

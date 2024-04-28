@@ -3,18 +3,17 @@
 const tryToCatch = require('try-to-catch');
 const montag = require('montag');
 const {test} = require('supertape');
-
-const {lint} = require('..');
+const quickLint = require('..');
 
 test('quick-lint: no args', async (t) => {
-    const [error] = await tryToCatch(lint);
+    const [error] = await tryToCatch(quickLint);
     
     t.equal(error.message, `☝️ Looks like 'typeof source': 'undefined', expected 'source' to be 'string'`);
     t.end();
 });
 
 test('quick-lint: no async', async (t) => {
-    const result = await lint(montag`
+    const result = await quickLint(montag`
         function x() {
             await m();
         }
@@ -45,7 +44,7 @@ test('quick-lint: ts', async (t) => {
         isTS: true,
     };
     
-    const result = await lint(montag`
+    const result = await quickLint(montag`
         interface X {}
     `, options);
     
@@ -60,7 +59,7 @@ test('quick-lint: jsx', async (t) => {
         isJSX: true,
     };
     
-    const result = await lint(montag`
+    const result = await quickLint(montag`
         const a = <div>hello</div>;
     `, options);
     
@@ -71,7 +70,7 @@ test('quick-lint: jsx', async (t) => {
 });
 
 test('quick-lint: await: undeclared variable', async (t) => {
-    const result = await lint(montag`
+    const result = await quickLint(montag`
         () => await
     `);
     
@@ -89,7 +88,7 @@ test('quick-lint: await: undeclared variable', async (t) => {
 });
 
 test('quick-lint: await: declared', async (t) => {
-    const result = await lint(montag`
+    const result = await quickLint(montag`
         const await = 5;
     `);
     
