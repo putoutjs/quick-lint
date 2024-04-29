@@ -3,7 +3,7 @@
 const {run} = require('madrun');
 
 module.exports = {
-    'test': () => 'tape test/*.js',
+    'test': () => `tape test/*.js 'rules/**/*.spec.js'`,
     'coverage': () => 'c8 npm test',
     'lint': () => 'putout .',
     'fix:lint': () => run('lint', '--fix'),
@@ -11,4 +11,14 @@ module.exports = {
     'watcher': () => 'nodemon -w test -w lib --exec',
     'watch:test': async () => await run('watcher', await run('test')),
     'watch:lint': async () => await run('watcher', await run('lint')),
+    'update:dist': () => [
+        'mkdir dist2',
+        'cd dist2',
+        'wget https://quick-lint-js.com/demo/dist/quick-lint-js-vscode.wasm',
+        'wget https://raw.githubusercontent.com/quick-lint/quick-lint-js/master/website/wasm/quick-lint-js.js',
+        'cd ..',
+        'rm -rf dist',
+        'putout dist2 --rulesdir rules --fix',
+        'mv dist2 dist',
+    ].join(' && '),
 };
