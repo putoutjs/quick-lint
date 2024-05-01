@@ -117,3 +117,22 @@ test('quick-lint: await: declared', async (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('quick-lint: partntheses in destructuring (E0720)', async (t) => {
+    const [result] = await quickLint(montag`
+        const words = {first: "hello", second: "world"};
+        let ({first} = words);
+    `);
+    
+    const expected = {
+        message: `function 'let' call may be confused for destructuring; remove parentheses to declare a variable`,
+        position: {
+            column: 1,
+            line: 2,
+        },
+        rule: 'parser (quick-lint-js)',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
