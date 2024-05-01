@@ -12,7 +12,7 @@ module.exports = {
     'watch:test': async () => await run('watcher', await run('test')),
     'watch:lint': async () => await run('watcher', await run('lint')),
     'update:dist': () => [
-        'mkdir dist2',
+        'mkdir -p dist2',
         'cd dist2',
         'wget https://quick-lint-js.com/demo/dist/quick-lint-js-vscode.wasm',
         'wget https://raw.githubusercontent.com/quick-lint/quick-lint-js/master/website/wasm/quick-lint-js.js',
