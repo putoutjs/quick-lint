@@ -1,3 +1,9 @@
+2024.05.06, v1.2.0
+
+feature:
+- d84e7a7 @putout/quick-lint: undeclared variable: get rid
+- a781a5e @putout/quick-lint: add ability to download and modify quick-lint-js
+
 2024.04.29, v1.1.0
 
 feature:
