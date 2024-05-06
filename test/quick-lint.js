@@ -26,13 +26,6 @@ test('quick-lint: no async', async (t) => {
             line: 2,
             column: 5,
         },
-    }, {
-        rule: 'parser (quick-lint-js)',
-        message: 'use of undeclared variable: m',
-        position: {
-            line: 2,
-            column: 11,
-        },
     }];
     
     t.deepEqual(result, expected);
@@ -132,6 +125,17 @@ test('quick-lint: partntheses in destructuring (E0720)', async (t) => {
         },
         rule: 'parser (quick-lint-js)',
     };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('quick-lint: no E0057: undeclared variable', async (t) => {
+    const result = await quickLint(montag`
+        fn();
+    `);
+    
+    const expected = [];
     
     t.deepEqual(result, expected);
     t.end();
