@@ -40,6 +40,7 @@
     "eslint": "^9.1.1",
     "eslint-plugin-n": "^17.3.1",
     "eslint-plugin-putout": "^22.5.1",
+    "ipull": "^3.2.2",
     "madrun": "^10.0.1",
     "montag": "^1.2.1",
     "nodemon": "^3.1.0",
