@@ -27,16 +27,17 @@ interface Options {
 ```
 
 ```js
-const quickLint = require('@putout/quick-lint', {
-    isJSX: true,
-    isTS: false,
-});
-
-quickLint(`
+const quickLint = require('@putout/quick-lint');
+const option = `
     function x() {
         await m();
     }
-`);
+`;
+
+quickLint(source,  {
+    isJSX: true,
+    isTS: false,
+});
 
 // returns
 [{
