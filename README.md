@@ -34,7 +34,7 @@ const option = `
     }
 `;
 
-quickLint(source,  {
+quickLint(source, {
     isJSX: true,
     isTS: false,
 });
