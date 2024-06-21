@@ -1,3 +1,11 @@
+2024.06.21, v1.3.0
+
+feature:
+- bbc10ba @putout/quick-lint: @putout/test v10.0.0
+- 1b3ff5b @putout/quick-lint: c8 v10.1.2
+- e7039db quick-lint: add startLine
+- 067ab87 package: ipull v3.2.2
+
 2024.05.06, v1.2.0
 
 feature:
