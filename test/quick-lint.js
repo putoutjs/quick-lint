@@ -140,3 +140,26 @@ test('quick-lint: no E0057: undeclared variable', async (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('quick-lint: startLine', async (t) => {
+    const options = {
+        startLine: 4,
+    };
+    const result = await quickLint(montag`
+        function x() {
+            await m();
+        }
+    `, options);
+    
+    const expected = [{
+        rule: 'parser (quick-lint-js)',
+        message: `'await' is only allowed in async functions`,
+        position: {
+            line: 6,
+            column: 5,
+        },
+    }];
+    
+    t.deepEqual(result, expected);
+    t.end();
+});

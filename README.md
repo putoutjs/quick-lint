@@ -23,6 +23,7 @@
 interface Options {
     isJSX: boolean;
     isTS: boolean;
+    startLine: number;
 }
 ```
 
@@ -37,6 +38,7 @@ const option = `
 quickLint(source, {
     isJSX: true,
     isTS: false,
+    startLine: 0, // default
 });
 
 // returns
