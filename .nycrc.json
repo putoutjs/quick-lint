@@ -7,7 +7,9 @@
         "test",
         "**/fixture",
         "**/dist",
-        "**/*.config.*"
+        "**/*.config.*",
+        "**/bin",
+        "**/example*"
     ],
     "branches": 100,
     "lines": 100,
