@@ -145,6 +145,7 @@ test('quick-lint: startLine', async (t) => {
     const options = {
         startLine: 4,
     };
+    
     const result = await quickLint(montag`
         function x() {
             await m();
