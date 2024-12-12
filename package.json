@@ -8,7 +8,7 @@
   "main": "lib/quick-lint.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/putoutjs/quick-lint.git"
+    "url": "git+https://github.com/putoutjs/quick-lint.git"
   },
   "bin": {
     "quick-lint": "bin/quick-lint.mjs"
