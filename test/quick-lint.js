@@ -164,3 +164,21 @@ test('quick-lint: startLine', async (t) => {
     t.deepEqual(result, expected);
     t.end();
 });
+
+test('quick-lint: export without const', async (t) => {
+    const [result] = await quickLint(montag`
+        export x = () => {};
+    `);
+    
+    const expected = {
+        message: `Use 'export const' instead of 'export'`,
+        position: {
+            column: 7,
+            line: 1,
+        },
+        rule: 'parser (quick-lint-js)',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
