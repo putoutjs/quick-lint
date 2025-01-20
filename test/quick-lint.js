@@ -69,7 +69,7 @@ test('quick-lint: await: await: isFixMessages: false', async (t) => {
     });
     
     const expected = [{
-        message: 'use of undeclared variable: await',
+        message: 'Use of undeclared variable: await',
         position: {
             column: 6,
             line: 1,
@@ -118,7 +118,7 @@ test('quick-lint: partntheses in destructuring (E0720)', async (t) => {
     `);
     
     const expected = {
-        message: `function 'let' call may be confused for destructuring; remove parentheses to declare a variable`,
+        message: `Function 'let' call may be confused for destructuring; remove parentheses to declare a variable`,
         position: {
             column: 1,
             line: 2,
@@ -174,6 +174,27 @@ test('quick-lint: export without const', async (t) => {
         message: `Use 'export const' instead of 'export'`,
         position: {
             column: 7,
+            line: 1,
+        },
+        rule: 'parser (quick-lint-js)',
+    };
+    
+    t.deepEqual(result, expected);
+    t.end();
+});
+
+test('quick-lint: report', async (t) => {
+    const source = montag`
+        const a = 'hello;
+        const b = 'world';
+    `;
+    
+    const [result] = await quickLint(source);
+    
+    const expected = {
+        message: `Unclosed string literal`,
+        position: {
+            column: 10,
             line: 1,
         },
         rule: 'parser (quick-lint-js)',
