@@ -1,8 +1,6 @@
-'use strict';
+export const report = () => `Remove unused code`;
 
-module.exports.report = () => `Remove unused code`;
-
-module.exports.replace = () => ({
+export const replace = () => ({
     'exports.createProcessFactoryAsync = __': '',
     'async function createProcessFactoryAsync(){}': '',
     'let VSCODE_WASM_MODULE_PATH_BROWSER = __': '',

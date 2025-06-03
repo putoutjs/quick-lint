@@ -1,15 +1,13 @@
-'use strict';
+import {run} from 'madrun';
 
-const {run} = require('madrun');
-
-module.exports = {
+export default {
     'test': () => `tape test/*.js 'rules/**/*.spec.js'`,
     'coverage': () => 'c8 npm test',
     'lint': () => 'putout .',
     'fix:lint': () => run('lint', '--fix'),
     'report': () => 'c8 report --reporter=lcov',
     'watcher': () => 'nodemon -w test -w lib --exec',
-    'watch:test': async () => await run('watcher', await run('test')),
+    'watch:test': async () => await run('watcher', `"${await run('test')}"`),
     'watch:lint': async () => await run('watcher', await run('lint')),
     'update:dist': () => [
         'mkdir -p dist2',

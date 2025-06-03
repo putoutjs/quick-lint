@@ -1,5 +1,3 @@
-'use strict';
+import {safeAlign} from 'eslint-plugin-putout';
 
-const {safeAlign} = require('eslint-plugin-putout/config');
-
-module.exports = safeAlign;
+export default safeAlign;

@@ -1,9 +1,7 @@
-'use strict';
-
-const tryToCatch = require('try-to-catch');
-const montag = require('montag');
-const {test} = require('supertape');
-const quickLint = require('..');
+import tryToCatch from 'try-to-catch';
+import montag from 'montag';
+import {test} from 'supertape';
+import quickLint from '../lib/quick-lint.js';
 
 test('quick-lint: no args', async (t) => {
     const [error] = await tryToCatch(quickLint);
