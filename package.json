@@ -35,7 +35,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@putout/test": "^11.0.0",
+    "@putout/test": "^13.3.1",
     "c8": "^10.1.2",
     "eslint": "^9.1.1",
     "eslint-plugin-putout": "^23.0.0",
