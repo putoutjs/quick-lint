@@ -39,7 +39,7 @@
     "c8": "^10.1.2",
     "eslint": "^9.1.1",
     "eslint-plugin-putout": "^27.1.0",
-    "ipull": "^3.2.2",
+    "ipull": "^4.0.3",
     "madrun": "^10.0.1",
     "montag": "^1.2.1",
     "nodemon": "^3.1.0",
