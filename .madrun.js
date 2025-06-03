@@ -13,10 +13,11 @@ export default {
         'mkdir -p dist2',
         'cd dist2',
         'ipull https://quick-lint-js.com/demo/dist/quick-lint-js-vscode.wasm',
-        'ipull https://raw.githubusercontent.com/quick-lint/quick-lint-js/master/website/wasm/quick-lint-js.js',
+        'ipull -s quick-lint-js.cjs https://raw.githubusercontent.com/quick-lint/quick-lint-js/master/website/wasm/quick-lint-js.js',
         'cd ..',
         'putout dist2 --rulesdir rules --fix',
         'rm -rf dist',
+        'putout --fix dist2/quick-lint-js.cjs',
         'mv dist2 dist',
     ].join(' && '),
 };

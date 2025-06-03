@@ -3,9 +3,10 @@
 
 'use strict';
 
-const noop = () => {};
 const process = require('node:process');
+
 const {TextEncoder, TextDecoder} = require('node:util');
+const noop = () => {};
 const isFn = (a) => typeof a === 'function';
 
 // TODO(strager): Make this configurable.
@@ -95,7 +96,9 @@ class ProcessFactory {
                 invoke_vi: invoke,
                 invoke_vii: invoke,
                 invoke_viii: invoke,
-                invoke_viiii: invoke, // Called by longjmp. Different names are for different Emscripten
+                invoke_viiii: invoke,
+                // Called by longjmp. Different names are for different Emscripten
+                
                 // versions and configurations.
                 _emscripten_throw_longjmp: longjmp,
                 emscripten_longjmp: longjmp,
@@ -360,6 +363,7 @@ module.exports.LanguageOptions = {
     TYPESCRIPT: 1 << 1,
     CONFIG_JSON: 1 << 2,
 };
+
 // Writes a null-terminated string into the process's heap.
 function encodeUTF8String(string, process) {
     const maxUTF8BytesPerUTF16CodeUnit = Math.ceil(Math.max(
@@ -388,7 +392,8 @@ function encodeUTF8String(string, process) {
             textUTF8Size = encoded.length;
         }
         
-        u8Array[textUTF8Size] = 0; // Null terminator.
+        u8Array[textUTF8Size] = 0;
+        // Null terminator.
         
         return {
             pointer: textUTF8Pointer,
