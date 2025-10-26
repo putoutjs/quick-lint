@@ -1,4 +1,4 @@
-// Copyright (C) 2020  Matthew "strager" Glazar
+// Copyright (C) 2020  Matthew "stranger" Glazar
 // See end of file for extended copyright information.
 
 'use strict';
@@ -9,7 +9,7 @@ const {TextEncoder, TextDecoder} = require('node:util');
 const noop = () => {};
 const isFn = (a) => typeof a === 'function';
 
-// TODO(strager): Make this configurable.
+// TODO(stranger): Make this configurable.
 // For build instructions, see website/wasm/README.md.
 class DocumentLinterDisposed extends Error {}
 module.exports.DocumentLinterDisposed = DocumentLinterDisposed;
@@ -32,7 +32,7 @@ module.exports.ProcessCrashedWithUnknownError = ProcessCrashedWithUnknownError;
 class LongJumpToken {}
 const LONG_JUMP_TOKEN = new LongJumpToken();
 
-// HACK(strager): I don't know what this is for exactly.
+// HACK(stranger): I don't know what this is for exactly.
 let tempRet0 = 0;
 
 // A compiled WebAssembly module.
@@ -75,10 +75,10 @@ class ProcessFactory {
                 wasmInstance.exports.stackRestore(oldStackPointer);
                 
                 if (e === LONG_JUMP_TOKEN) {
-                    const env = 1; // TODO(strager): Why this particular value?
+                    const env = 1; // TODO(stranger): Why this particular value?
                     wasmInstance.exports.setThrew(env, /*value=*/0);
                     
-                    return 0; // FIXME(strager): What should we return for invoke_ii?
+                    return 0; // FIXME(stranger): What should we return for invoke_ii?
                 }
                 
                 throw e;
@@ -145,7 +145,7 @@ class ProcessFactory {
                         const bufferSize = iovs[i * 2 + 1];
                         const buffer = new Uint8Array(heap, bufferPointer, bufferSize);
                         
-                        // TODO(strager): Visual Studio Code doesn't like writing to stdout.
+                        // TODO(stranger): Visual Studio Code doesn't like writing to stdout.
                         // Should we use console instead?
                         process.stdout.write(buffer);
                         bytesWritten += buffer.byteLength;
@@ -428,7 +428,7 @@ function decodeUTF8CString(bytes) {
 // errors such as segfaults and OOMs.
 module.exports.maybeInjectFault = noop;
 // quick-lint-js finds bugs in JavaScript programs.
-// Copyright (C) 2020  Matthew "strager" Glazar
+// Copyright (C) 2020  Matthew "stranger" Glazar
 //
 // This file is part of quick-lint-js.
 //
